@@ -137,14 +137,36 @@ function playBeep(freq = 440, dur = 0.1) {
 
 let tvIsOn = false;
 let isTransitioning = false;
+let hintTimeout = null;
 
 function togglePower() {
     if (isTransitioning) return;
+    
+    // Hide hint when power button is clicked
+    hideHint();
     
     if (tvIsOn) {
         turnOffTV();
     } else {
         turnOnTV();
+    }
+}
+
+function showHint() {
+    const hint = document.getElementById('powerHint');
+    if (hint && !tvIsOn) {
+        hint.classList.add('visible');
+    }
+}
+
+function hideHint() {
+    const hint = document.getElementById('powerHint');
+    if (hint) {
+        hint.classList.remove('visible');
+    }
+    if (hintTimeout) {
+        clearTimeout(hintTimeout);
+        hintTimeout = null;
     }
 }
 
@@ -254,6 +276,13 @@ function turnOffTV() {
         
         tvIsOn = false;
         isTransitioning = false;
+        
+        // Show hint again after 3 seconds if TV stays off
+        hintTimeout = setTimeout(() => {
+            if (!tvIsOn) {
+                showHint();
+            }
+        }, 3000);
     }, 400);
 }
 
@@ -361,6 +390,13 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener('click', () => initAudio(), { once: true });
     
-    console.log('%c>>> ORLOV PORTFOLIO', 'color: #00ff41; font-size: 16px; font-family: monospace; font-weight: bold;');
+    // Show hint after 3 seconds if TV is still off
+    hintTimeout = setTimeout(() => {
+        if (!tvIsOn) {
+            showHint();
+        }
+    }, 3000);
+    
+    console.log('%c>>> EDWARD\'S DEN PORTFOLIO', 'color: #00ff41; font-size: 16px; font-family: monospace; font-weight: bold;');
     console.log('%c>>> Press POWER to start', 'color: #ffb000; font-family: monospace;');
 });
