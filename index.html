@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward's Den | Developer Portfolio</title>
+    <link rel="icon" type="image/webp" href="screenshots/King Crimson Discipline album art.webp">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 8-bit Retro Background -->
+    <div class="retro-background">
+        <div class="grid-overlay"></div>
+    </div>
+    
+    <!-- CRT TV -->
+    <div class="tv-unit">
+        <!-- TV Outer Shell -->
+        <div class="tv-body">
+            <!-- TV Top Vent -->
+            <div class="tv-vent-top">
+                <div class="vent-slot"></div>
+                <div class="vent-slot"></div>
+                <div class="vent-slot"></div>
+                <div class="vent-slot"></div>
+                <div class="vent-slot"></div>
+            </div>
+            
+            <!-- Screen Bezel -->
+            <div class="screen-bezel">
+                <!-- CRT Glass -->
+                <div class="crt-glass">
+                    <!-- Screen Container -->
+                    <div class="screen-container" id="screenContainer">
+                        <!-- Scanlines -->
+                        <div class="scanlines"></div>
+                        
+                        <!-- Static Overlay -->
+                        <div class="static-overlay" id="staticOverlay"></div>
+                        
+                        <!-- Screen Reflection -->
+                        <div class="screen-reflection"></div>
+                        
+                        <!-- Off Screen -->
+                        <div class="off-screen" id="offScreen">
+                            <div class="off-dot"></div>
+                        </div>
+                        
+                        <!-- Loading Screen -->
+                        <div class="loading-screen" id="loadingScreen">
+                            <div class="loading-content">
+                                <div class="pixel-loader">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <div class="loading-text">LOADING...</div>
+                                <div class="loading-bar">
+                                    <div class="loading-progress" id="loadingProgress"></div>
+                                </div>
+                                <div class="loading-status" id="loadingStatus">INITIALIZING...</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content -->
+                        <div class="main-content" id="mainContent">
+                            <div class="content-wrapper">
+                                <!-- Header -->
+                                <header class="header">
+                                    <h1 class="glitch-text">EDWARD'S DEN</h1>
+                                    <p class="subtitle">SYSTEMS ENGINEER // FULL-STACK DEVELOPER</p>
+                                    <div class="contact-bar">
+                                        <a href="https://github.com/TheTrueNull" target="_blank" class="contact-link">[GITHUB]</a>
+                                        <a href="mailto:truenull.edward@gmail.com" class="contact-link">[EMAIL]</a>
+                                    </div>
+                                </header>
+
+                                <!-- About Section -->
+                                <section class="section">
+                                    <h2 class="section-title">&gt; ABOUT_ME.exe</h2>
+                                    <div class="about-content">
+                                        <p><span class="prompt">$</span> Full-stack developer specializing in <span class="highlight">LLM-assisted development</span>, <span class="highlight">SQL optimization</span>, and <span class="highlight">modern web technologies</span>.</p>
+                                        <p><span class="prompt">$</span> Currently @ Gray Matter LLC</p>
+                                        <p><span class="prompt">$</span> B.S. Computer Science - CSUN</p>
+                                        <p class="small"><span class="prompt">$</span> Certs: AI/AWS | MongoDB | Big Data</p>
+                                    </div>
+                                </section>
+
+                                <!-- Skills Section -->
+                                <section class="section">
+                                    <h2 class="section-title">&gt; SKILLS.dat</h2>
+                                    <div class="skills-grid">
+                                        <div class="skill-category">
+                                            <h3>[LANGUAGES]</h3>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">Python</span>
+                                                <span class="skill-tag">JavaScript</span>
+                                                <span class="skill-tag">PHP</span>
+                                                <span class="skill-tag">Java</span>
+                                                <span class="skill-tag">C++</span>
+                                            </div>
+                                        </div>
+                                        <div class="skill-category">
+                                            <h3>[WEB]</h3>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">React</span>
+                                                <span class="skill-tag">Node.js</span>
+                                                <span class="skill-tag">NextJS</span>
+                                                <span class="skill-tag">FastAPI</span>
+                                            </div>
+                                        </div>
+                                        <div class="skill-category">
+                                            <h3>[DATABASE]</h3>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">SQL</span>
+                                                <span class="skill-tag">PostgreSQL</span>
+                                                <span class="skill-tag">MySQL</span>
+                                            </div>
+                                        </div>
+                                        <div class="skill-category">
+                                            <h3>[TOOLS]</h3>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">Cursor</span>
+                                                <span class="skill-tag">Git</span>
+                                                <span class="skill-tag">Linux</span>
+                                                <span class="skill-tag">Docker</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Experience Section -->
+                                <section class="section">
+                                    <h2 class="section-title">&gt; WORK_LOG.txt</h2>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-header">
+                                                <span class="company">Gray Matter LLC</span>
+                                                <span class="date">2021 - PRESENT</span>
+                                            </div>
+                                            <p class="role">Systems Engineer</p>
+                                            <ul class="details">
+                                                <li>&gt; LLM-assisted code refactoring & SQL optimization</li>
+                                                <li>&gt; SQL data migration across database platforms</li>
+                                                <li>&gt; React.js frontend development</li>
+                                            </ul>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-header">
+                                                <span class="company">Maintstar</span>
+                                                <span class="date">2017 - 2021</span>
+                                            </div>
+                                            <p class="role">QA Engineer / Full-Stack Developer</p>
+                                            <ul class="details">
+                                                <li>&gt; Test automation with JavaScript & React</li>
+                                                <li>&gt; API integration testing</li>
+                                            </ul>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-header">
+                                                <span class="company">mHealth Pharmaceutical</span>
+                                                <span class="date">2014 - 2017</span>
+                                            </div>
+                                            <p class="role">Automation/QA Engineer</p>
+                                            <ul class="details">
+                                                <li>&gt; Network protocol validation</li>
+                                                <li>&gt; RESTful API & SOAP testing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Projects Section -->
+                                <section class="section">
+                                    <h2 class="section-title">&gt; PROJECTS.dir</h2>
+                                    <p class="section-hint">[CLICK TO EXPAND]</p>
+                                    
+                                    <div class="projects-grid">
+                                        <!-- AI Documentation Tool -->
+                                        <div class="project-card">
+                                            <div class="project-header" onclick="toggleProject('ai-docs')">
+                                                <span class="project-icon">[AI]</span>
+                                                <div class="project-info">
+                                                    <h3>AI_DOCUMENTATION.py</h3>
+                                                    <p>Python | FastAPI | React | OpenAI</p>
+                                                </div>
+                                                <span class="expand-icon" id="expand-ai-docs">+</span>
+                                            </div>
+                                            <div class="project-details" id="details-ai-docs">
+                                                <p>&gt; AI-powered documentation generator</p>
+                                                <p>&gt; Auto-generates system docs from code</p>
+                                                <p>&gt; FastAPI backend + React frontend</p>
+                                                <div class="project-screenshots">
+                                                    <div class="screenshot-item" onclick="openScreenshot('ai-docs-1', 'AI Docs - Upload UI')">
+                                                        <img src="screenshots/ai-docs-1.png" alt="AI Docs">
+                                                        <span>UPLOAD_UI</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Election System -->
+                                        <div class="project-card">
+                                            <div class="project-header" onclick="toggleProject('election')">
+                                                <span class="project-icon">[VOTE]</span>
+                                                <div class="project-info">
+                                                    <h3>ELECTION_SYSTEM.js</h3>
+                                                    <p>MySQL | Node.js | React | DnD</p>
+                                                </div>
+                                                <span class="expand-icon" id="expand-election">+</span>
+                                            </div>
+                                            <div class="project-details" id="details-election">
+                                                <p>&gt; Full-stack election management</p>
+                                                <p>&gt; Ranked-choice voting system</p>
+                                                <p>&gt; Role-based authentication</p>
+                                                <div class="project-screenshots">
+                                                    <div class="screenshot-item" onclick="openScreenshot('election-1', 'Sign In')">
+                                                        <img src="screenshots/election-1.png" alt="Login">
+                                                        <span>LOGIN</span>
+                                                    </div>
+                                                    <div class="screenshot-item" onclick="openScreenshot('election-2', 'Register')">
+                                                        <img src="screenshots/election-2.png" alt="Register">
+                                                        <span>REGISTER</span>
+                                                    </div>
+                                                    <div class="screenshot-item" onclick="openScreenshot('election-3', 'Voting')">
+                                                        <img src="screenshots/election-3.png" alt="Vote">
+                                                        <span>VOTE</span>
+                                                    </div>
+                                                    <div class="screenshot-item" onclick="openScreenshot('election-4', 'Admin')">
+                                                        <img src="screenshots/election-4.png" alt="Admin">
+                                                        <span>ADMIN</span>
+                                                    </div>
+                                                    <div class="screenshot-item" onclick="openScreenshot('election-5', 'Users')">
+                                                        <img src="screenshots/election-5.png" alt="Users">
+                                                        <span>USERS</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- ML Projects -->
+                                        <div class="project-card">
+                                            <div class="project-header" onclick="toggleProject('ml')">
+                                                <span class="project-icon">[ML]</span>
+                                                <div class="project-info">
+                                                    <h3>DATA_MINING.ipynb</h3>
+                                                    <p>Python | TensorFlow | pandas</p>
+                                                </div>
+                                                <span class="expand-icon" id="expand-ml">+</span>
+                                            </div>
+                                            <div class="project-details" id="details-ml">
+                                                <p>&gt; CNN for predictive analytics</p>
+                                                <p>&gt; MNIST digit recognition (96% accuracy)</p>
+                                                <p>&gt; Data preprocessing pipelines</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Professional -->
+                                        <div class="project-card">
+                                            <div class="project-header" onclick="toggleProject('pro')">
+                                                <span class="project-icon">[PRO]</span>
+                                                <div class="project-info">
+                                                    <h3>PROFESSIONAL.lnk</h3>
+                                                    <p>React | Node.js | SQL | APIs</p>
+                                                </div>
+                                                <span class="expand-icon" id="expand-pro">+</span>
+                                            </div>
+                                            <div class="project-details" id="details-pro">
+                                                <p>&gt; <a href="https://www.maintstar.com" target="_blank" class="ext-link">maintstar.com</a> - Gov tracking</p>
+                                                <p>&gt; <a href="https://www.graymatterllc.com" target="_blank" class="ext-link">graymatterllc.com</a> - Modernization</p>
+                                                <p>&gt; PowerBuilder to React migration</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Footer -->
+                                <footer class="footer">
+                                    <p>// EDWARD'S DEN 2025 //</p>
+                                    <div class="tv-controls">
+                                        <button class="ctrl-btn" onclick="toggleScanlines()">[SCANLINES]</button>
+                                        <button class="ctrl-btn" onclick="toggleStatic()">[STATIC]</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <!-- Power Button -->
+                <div class="power-button-container">
+                    <button class="power-button" id="powerButton" onclick="togglePower()">
+                        <div class="power-button-inner">
+                            <div class="power-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v10M18.4 6.6a9 9 0 1 1-12.8 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                    <div class="power-led" id="powerLed"></div>
+                    <span class="power-label">POWER</span>
+                </div>
+                
+                <!-- Channel/Volume Knobs -->
+                <div class="knobs-container">
+                    <div class="knob" title="Volume">
+                        <div class="knob-inner">
+                            <div class="knob-indicator"></div>
+                        </div>
+                        <span class="knob-label">VOL</span>
+                    </div>
+                    <div class="knob" title="Channel">
+                        <div class="knob-inner">
+                            <div class="knob-indicator"></div>
+                        </div>
+                        <span class="knob-label">CH</span>
+                    </div>
+                </div>
+                
+                <!-- Brand -->
+                <div class="tv-brand">
+                    <span class="brand-text">DEN</span>
+                    <span class="brand-model">CV-2025</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TV Stand -->
+        <div class="tv-stand">
+            <div class="stand-neck"></div>
+            <div class="stand-base"></div>
+        </div>
+    </div>
+
+    <!-- Screenshot Modal -->
+    <div class="modal" id="screenshotModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">[X]</button>
+            <img id="modalImage" src="" alt="Screenshot">
+            <p id="modalCaption"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
