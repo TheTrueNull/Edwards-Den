@@ -1055,6 +1055,91 @@ body {
 }
 
 /* ==========================================
+   POWER HINT POPUP
+   ========================================== */
+
+.power-hint {
+    position: fixed;
+    left: 5px;
+    bottom: 225px;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.power-hint.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.hint-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--green-bright);
+    padding: 15px 20px;
+    box-shadow: 
+        0 0 20px var(--green-dark),
+        0 0 40px rgba(0, 255, 65, 0.2),
+        inset 0 0 20px rgba(0, 255, 65, 0.05);
+}
+
+.hint-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    color: var(--green-bright);
+    text-shadow: 0 0 10px var(--green-bright);
+    line-height: 1.6;
+    animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hint-arrow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hint-arrow span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-right: 3px solid var(--green-bright);
+    border-bottom: 3px solid var(--green-bright);
+    transform: rotate(-45deg);
+    animation: arrowBounce 1s ease-in-out infinite;
+    box-shadow: 2px 2px 0 var(--green-dark);
+}
+
+.hint-arrow span:nth-child(1) {
+    animation-delay: 0s;
+    opacity: 0.4;
+}
+
+.hint-arrow span:nth-child(2) {
+    animation-delay: 0.15s;
+    opacity: 0.7;
+}
+
+.hint-arrow span:nth-child(3) {
+    animation-delay: 0.3s;
+    opacity: 1;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: rotate(-45deg) translate(0, 0); }
+    50% { transform: rotate(-45deg) translate(5px, 5px); }
+}
+
+/* ==========================================
    RESPONSIVE
    ========================================== */
 
@@ -1137,5 +1222,25 @@ body {
     
     .knobs-container {
         display: none;
+    }
+    
+    .power-hint {
+        left: 10px;
+        right: 10px;
+        bottom: 20px;
+    }
+    
+    .hint-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hint-arrow {
+        transform: rotate(90deg);
+        margin-top: 10px;
+    }
+    
+    .hint-text {
+        font-size: 9px;
     }
 }
