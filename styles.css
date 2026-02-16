@@ -1,0 +1,1141 @@
+/* ==========================================
+   RETRO TV PORTFOLIO - PURE CSS
+   High Quality CRT Television Design
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green-bright: #00ff41;
+    --green-mid: #00cc33;
+    --green-dark: #009922;
+    --green-darker: #004411;
+    --black: #0a0a0a;
+    --amber: #ffb000;
+    --red: #ff3333;
+    
+    /* TV Colors */
+    --tv-body: #2a2a2a;
+    --tv-body-light: #3a3a3a;
+    --tv-body-dark: #1a1a1a;
+    --tv-bezel: #1f1f1f;
+    --tv-accent: #444;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: #0a0f0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================
+   RETRO BACKGROUND
+   ========================================== */
+
+.retro-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: 
+        radial-gradient(ellipse at center, #0d1a0d 0%, #050a05 70%, #000 100%);
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* ==========================================
+   TV UNIT
+   ========================================== */
+
+.tv-unit {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================
+   TV BODY
+   ========================================== */
+
+.tv-body {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        var(--tv-body-light) 0%,
+        var(--tv-body) 10%,
+        var(--tv-body) 90%,
+        var(--tv-body-dark) 100%
+    );
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow:
+        /* Outer shadow */
+        0 30px 60px rgba(0, 0, 0, 0.7),
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        /* Inner highlight */
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+        /* Side shadows */
+        inset 3px 0 10px rgba(0, 0, 0, 0.2),
+        inset -3px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   TV VENT
+   ========================================== */
+
+.tv-vent-top {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.vent-slot {
+    width: 30px;
+    height: 4px;
+    background: var(--tv-body-dark);
+    border-radius: 2px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   SCREEN BEZEL
+   ========================================== */
+
+.screen-bezel {
+    background: linear-gradient(
+        145deg,
+        #252525 0%,
+        var(--tv-bezel) 50%,
+        #151515 100%
+    );
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 -2px 5px rgba(255, 255, 255, 0.05),
+        0 0 0 3px var(--tv-body-dark);
+}
+
+/* ==========================================
+   CRT GLASS
+   ========================================== */
+
+.crt-glass {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 30, 30, 1) 0%,
+        rgba(10, 10, 10, 1) 100%
+    );
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow:
+        /* Glass depth */
+        inset 0 0 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 60px rgba(0, 0, 0, 0.4),
+        /* Outer rim */
+        0 0 0 2px #111,
+        0 0 0 4px #222;
+}
+
+/* ==========================================
+   SCREEN CONTAINER
+   ========================================== */
+
+.screen-container {
+    position: relative;
+    width: 85vw;
+    height: 70vh;
+    max-width: 1600px;
+    max-height: 800px;
+    background: var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    /* CRT curvature simulation */
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.5),
+        inset 0 0 200px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   SCREEN EFFECTS
+   ========================================== */
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 101;
+    mix-blend-mode: overlay;
+}
+
+.static-overlay.active {
+    opacity: 0.1;
+    animation: staticFlicker 0.15s infinite;
+}
+
+.static-overlay.heavy {
+    opacity: 0.5;
+    animation: staticFlicker 0.08s infinite;
+}
+
+@keyframes staticFlicker {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-1px, 1px) scale(1.01); }
+    50% { transform: translate(1px, -1px) scale(0.99); }
+    75% { transform: translate(-1px, -1px) scale(1.01); }
+}
+
+.screen-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 102;
+}
+
+/* ==========================================
+   OFF SCREEN
+   ========================================== */
+
+.off-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    transition: opacity 0.5s ease;
+}
+
+.off-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.off-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green-dark);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green-dark);
+    animation: dotPulse 3s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* ==========================================
+   LOADING SCREEN
+   ========================================== */
+
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--black);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 45;
+}
+
+.loading-screen.active {
+    display: flex;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.pixel-loader {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 30px;
+}
+
+.pixel-loader span {
+    width: 12px;
+    height: 12px;
+    background: var(--green-bright);
+    animation: pixelBounce 0.6s ease-in-out infinite;
+}
+
+.pixel-loader span:nth-child(2) { animation-delay: 0.1s; }
+.pixel-loader span:nth-child(3) { animation-delay: 0.2s; }
+.pixel-loader span:nth-child(4) { animation-delay: 0.3s; }
+.pixel-loader span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes pixelBounce {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(2.5); opacity: 0.7; }
+}
+
+.loading-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 22px;
+    color: var(--green-bright);
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px var(--green-bright);
+}
+
+.loading-bar {
+    width: 280px;
+    height: 20px;
+    background: rgba(0, 255, 65, 0.1);
+    border: 3px solid var(--green-bright);
+    margin: 0 auto 20px;
+    padding: 3px;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--green-dark), var(--green-bright));
+    box-shadow: 0 0 15px var(--green-bright);
+    transition: width 0.2s ease;
+}
+
+.loading-status {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.main-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 40;
+}
+
+.main-content.visible {
+    opacity: 1;
+    visibility: visible;
+    animation: screenOn 0.6s ease;
+}
+
+@keyframes screenOn {
+    0% { 
+        opacity: 0;
+        filter: brightness(5) saturate(0);
+    }
+    50% {
+        filter: brightness(1.5) saturate(0.5);
+    }
+    100% { 
+        opacity: 1;
+        filter: brightness(1) saturate(1);
+    }
+}
+
+.main-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: var(--green-dark);
+    border: 2px solid var(--green-bright);
+}
+
+.content-wrapper {
+    padding: 25px 30px;
+    min-height: 100%;
+}
+
+/* ==========================================
+   TYPOGRAPHY & HEADER
+   ========================================== */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--green-dark);
+}
+
+.glitch-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 28px;
+    color: var(--green-bright);
+    text-shadow: 
+        0 0 10px var(--green-bright),
+        0 0 30px var(--green-mid),
+        0 0 50px var(--green-dark);
+    margin-bottom: 15px;
+    animation: textGlow 4s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 10px var(--green-bright), 0 0 30px var(--green-mid); }
+    50% { text-shadow: 0 0 20px var(--green-bright), 0 0 40px var(--green-bright), 0 0 60px var(--green-mid); }
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--green-mid);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.contact-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    color: var(--amber);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 14px;
+    border: 2px solid var(--amber);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-link:hover {
+    background: var(--amber);
+    color: var(--black);
+    box-shadow: 0 0 15px rgba(255, 176, 0, 0.5);
+}
+
+/* ==========================================
+   SECTIONS
+   ========================================== */
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--green-bright);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--green-dark);
+}
+
+.section-hint {
+    font-size: 14px;
+    color: var(--green-mid);
+    margin-bottom: 12px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.4; }
+}
+
+/* About */
+.about-content {
+    color: var(--green-bright);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.about-content p {
+    margin-bottom: 10px;
+}
+
+.about-content .small {
+    font-size: 16px;
+    color: var(--green-mid);
+}
+
+.prompt {
+    color: var(--amber);
+    margin-right: 5px;
+}
+
+.highlight {
+    color: var(--amber);
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.skill-category h3 {
+    color: var(--amber);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: transparent;
+    border: 1px solid var(--green-mid);
+    color: var(--green-bright);
+    padding: 5px 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: var(--green-dark);
+    box-shadow: 0 0 10px var(--green-dark);
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timeline-item {
+    padding: 12px 15px;
+    border: 1px solid var(--green-dark);
+    border-left: 3px solid var(--green-bright);
+    background: rgba(0, 255, 65, 0.02);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.company {
+    color: var(--green-bright);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.date {
+    color: var(--amber);
+    font-size: 14px;
+}
+
+.role {
+    color: var(--green-mid);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.details {
+    list-style: none;
+    font-size: 15px;
+    color: var(--green-mid);
+}
+
+.details li {
+    margin-bottom: 3px;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.project-card {
+    border: 1px solid var(--green-dark);
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.project-card:hover {
+    border-color: var(--green-bright);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.project-header:hover {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.project-icon {
+    color: var(--amber);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-info h3 {
+    color: var(--green-bright);
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.project-info p {
+    color: var(--green-mid);
+    font-size: 13px;
+}
+
+.expand-icon {
+    color: var(--green-bright);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+
+.expand-icon.expanded {
+    transform: rotate(45deg);
+}
+
+.project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 12px;
+}
+
+.project-details.expanded {
+    max-height: 400px;
+    padding: 12px;
+    border-top: 1px dashed var(--green-dark);
+}
+
+.project-details p {
+    color: var(--green-mid);
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.ext-link {
+    color: var(--amber);
+}
+
+.project-screenshots {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.screenshot-item {
+    width: 100px;
+    cursor: pointer;
+    border: 2px solid var(--green-dark);
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.screenshot-item:hover {
+    border-color: var(--green-bright);
+    box-shadow: 0 0 10px var(--green-dark);
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    display: block;
+}
+
+.screenshot-item span {
+    display: block;
+    background: var(--black);
+    color: var(--green-bright);
+    font-size: 9px;
+    text-align: center;
+    padding: 4px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--green-dark);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--green-mid);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.tv-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.ctrl-btn {
+    background: transparent;
+    border: 1px solid var(--green-mid);
+    color: var(--green-bright);
+    padding: 6px 14px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.ctrl-btn:hover {
+    background: var(--green-dark);
+}
+
+/* ==========================================
+   CONTROL PANEL
+   ========================================== */
+
+.control-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    background: linear-gradient(180deg, var(--tv-body-dark) 0%, var(--tv-body) 100%);
+    border-radius: 0 0 12px 12px;
+    margin-top: -5px;
+}
+
+/* Power Button */
+.power-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.power-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(
+        145deg,
+        #3a3a3a 0%,
+        #1a1a1a 100%
+    );
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 6px;
+}
+
+.power-button:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.power-button:active {
+    transform: scale(0.95);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.power-button-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.power-icon {
+    width: 20px;
+    height: 20px;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.power-button.on .power-icon {
+    color: var(--green-bright);
+    filter: drop-shadow(0 0 5px var(--green-bright));
+}
+
+.power-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #222;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.power-led.on {
+    background: var(--green-bright);
+    box-shadow: 
+        0 0 10px var(--green-bright),
+        0 0 20px var(--green-mid);
+}
+
+.power-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* Knobs */
+.knobs-container {
+    display: flex;
+    gap: 30px;
+}
+
+.knob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.knob-inner {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        #4a4a4a 0%,
+        #2a2a2a 50%,
+        #1a1a1a 100%
+    );
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.knob-inner:hover {
+    transform: rotate(15deg);
+}
+
+.knob-indicator {
+    width: 3px;
+    height: 12px;
+    background: #666;
+    border-radius: 2px;
+}
+
+.knob-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: #666;
+}
+
+/* Brand */
+.tv-brand {
+    text-align: right;
+}
+
+.brand-text {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: #555;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 0 #222;
+}
+
+.brand-model {
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: #444;
+    margin-top: 3px;
+}
+
+/* ==========================================
+   TV STAND
+   ========================================== */
+
+.tv-stand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stand-neck {
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(
+        90deg,
+        var(--tv-body-dark) 0%,
+        var(--tv-body) 50%,
+        var(--tv-body-dark) 100%
+    );
+    border-radius: 0 0 5px 5px;
+}
+
+.stand-base {
+    width: 150px;
+    height: 12px;
+    background: linear-gradient(
+        180deg,
+        var(--tv-body) 0%,
+        var(--tv-body-dark) 100%
+    );
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   MODAL
+   ========================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    border: 3px solid var(--green-bright);
+    background: var(--black);
+    padding: 15px;
+    box-shadow: 0 0 50px var(--green-dark);
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: 2px solid var(--green-bright);
+    color: var(--green-bright);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    background: var(--green-bright);
+    color: var(--black);
+}
+
+#modalImage {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+}
+
+#modalCaption {
+    color: var(--green-bright);
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1200px) {
+    .screen-container {
+        width: 88vw;
+        height: 68vh;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .screen-container {
+        width: 88vw;
+        height: 65vh;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .glitch-text {
+        font-size: 18px;
+    }
+    
+    .control-panel {
+        padding: 15px 20px;
+    }
+    
+    .knobs-container {
+        gap: 15px;
+    }
+    
+    .tv-body {
+        padding: 15px;
+    }
+    
+    .screen-bezel {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .screen-container {
+        width: 92vw;
+        height: 60vh;
+    }
+    
+    .content-wrapper {
+        padding: 15px;
+    }
+    
+    .glitch-text {
+        font-size: 14px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-bar {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .tv-body {
+        padding: 10px;
+    }
+    
+    .screen-bezel {
+        padding: 8px;
+    }
+    
+    .knobs-container {
+        display: none;
+    }
+}
