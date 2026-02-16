@@ -798,6 +798,7 @@ body {
 
 /* Power Button */
 .power-button-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1059,29 +1060,30 @@ body {
    ========================================== */
 
 .power-hint {
-    position: fixed;
-    left: 5px;
-    bottom: 225px;
+    position: absolute;
+    left: calc(100% + 10px);
+    top: calc(50% - 15px);
+    transform: translateY(-50%) translateX(10px);
     z-index: 500;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-20px);
     transition: all 0.4s ease;
+    white-space: nowrap;
 }
 
 .power-hint.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+    transform: translateY(-50%) translateX(0);
 }
 
 .hint-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     background: rgba(0, 0, 0, 0.95);
     border: 2px solid var(--green-bright);
-    padding: 15px 20px;
+    padding: 10px 12px;
     box-shadow: 
         0 0 20px var(--green-dark),
         0 0 40px rgba(0, 255, 65, 0.2),
@@ -1090,7 +1092,7 @@ body {
 
 .hint-text {
     font-family: 'Press Start 2P', cursive;
-    font-size: 11px;
+    font-size: 8px;
     color: var(--green-bright);
     text-shadow: 0 0 10px var(--green-bright);
     line-height: 1.6;
@@ -1105,23 +1107,23 @@ body {
 .hint-arrow {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
 }
 
 .hint-arrow span {
     display: block;
-    width: 12px;
-    height: 12px;
-    border-right: 3px solid var(--green-bright);
-    border-bottom: 3px solid var(--green-bright);
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid var(--green-bright);
+    border-top: 2px solid var(--green-bright);
     transform: rotate(-45deg);
     animation: arrowBounce 1s ease-in-out infinite;
-    box-shadow: 2px 2px 0 var(--green-dark);
+    box-shadow: -1px -1px 0 var(--green-dark);
 }
 
 .hint-arrow span:nth-child(1) {
     animation-delay: 0s;
-    opacity: 0.4;
+    opacity: 1;
 }
 
 .hint-arrow span:nth-child(2) {
@@ -1131,12 +1133,12 @@ body {
 
 .hint-arrow span:nth-child(3) {
     animation-delay: 0.3s;
-    opacity: 1;
+    opacity: 0.4;
 }
 
 @keyframes arrowBounce {
     0%, 100% { transform: rotate(-45deg) translate(0, 0); }
-    50% { transform: rotate(-45deg) translate(5px, 5px); }
+    50% { transform: rotate(-45deg) translate(-3px, -3px); }
 }
 
 /* ==========================================
@@ -1225,41 +1227,20 @@ body {
     }
     
     .power-hint {
-        left: auto;
-        right: auto;
-        bottom: auto;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%) translateX(-20px);
-    }
-    
-    .power-hint.visible {
-        transform: translateY(-50%) translateX(0);
+        left: calc(100% + 5px);
     }
     
     .hint-content {
-        flex-direction: row;
-        text-align: left;
-        padding: 10px 12px;
-        gap: 10px;
-    }
-    
-    .hint-arrow {
-        order: 2;
-        transform: none;
-        margin-top: 0;
+        padding: 6px 8px;
+        gap: 6px;
     }
     
     .hint-arrow span {
-        width: 8px;
-        height: 8px;
-        border-width: 2px;
+        width: 6px;
+        height: 6px;
     }
     
     .hint-text {
-        order: 1;
-        font-size: 7px;
-        max-width: 100px;
-        line-height: 1.4;
+        font-size: 6px;
     }
 }
