@@ -1225,22 +1225,41 @@ body {
     }
     
     .power-hint {
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: 50%;
         left: 10px;
-        right: 10px;
-        bottom: 20px;
+        transform: translateY(-50%) translateX(-20px);
+    }
+    
+    .power-hint.visible {
+        transform: translateY(-50%) translateX(0);
     }
     
     .hint-content {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
+        padding: 10px 12px;
+        gap: 10px;
     }
     
     .hint-arrow {
-        transform: rotate(90deg);
-        margin-top: 10px;
+        order: 2;
+        transform: none;
+        margin-top: 0;
+    }
+    
+    .hint-arrow span {
+        width: 8px;
+        height: 8px;
+        border-width: 2px;
     }
     
     .hint-text {
-        font-size: 9px;
+        order: 1;
+        font-size: 7px;
+        max-width: 100px;
+        line-height: 1.4;
     }
 }
