@@ -1225,22 +1225,4 @@ body {
     .knobs-container {
         display: none;
     }
-    
-    .power-hint {
-        left: calc(100% + 5px);
-    }
-    
-    .hint-content {
-        padding: 6px 8px;
-        gap: 6px;
-    }
-    
-    .hint-arrow span {
-        width: 6px;
-        height: 6px;
-    }
-    
-    .hint-text {
-        font-size: 6px;
-    }
 }
