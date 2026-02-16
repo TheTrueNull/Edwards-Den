@@ -1,4 +1,4 @@
-# Edward Orlov - Retro TV Portfolio
+# Edward - Retro TV Portfolio
 
 A sleek, retro-themed portfolio website featuring a classic CRT TV aesthetic with authentic turn-on animations and sound effects.
 
